@@ -52,7 +52,7 @@ footer{padding:30px 0;border-top:1px solid var(--bd);color:var(--mu);font-size:1
 </head>
 <body>
 <div id="page"></div><div id="adm"></div><button class="btn" id="fab">⚙ Dashboard Admin</button><div id="toast"></div>
-<script type="application/json" id="cfg">{"heroTitle":"Kandri E-Commerce: Produk Olahan Smart Aquaponik dari Desa Kandri","heroSub":"Etalase digital produk olahan program Smart Aquaponik Desa Energi Berdikari (DEB) — segar, lokal, dan mendukung kemandirian ekonomi desa.","color":"#1f8a5b","shopeeUrl":"","waNumber":"","waMsg":"Halo Kandri E-Commerce, saya tertarik dengan produk olahan Smart Aquaponik.","showAbout":true,"showProducts":true,"showGuide":true,"aboutTitle":"Tentang Desa Kandri","aboutText":"Desa Kandri berada di Kecamatan Gunungpati, Kota Semarang, Jawa Tengah. Melalui program Desa Energi Berdikari (DEB), masyarakat mengembangkan Smart Aquaponik — budidaya ikan dan tanaman terpadu berbasis teknologi — yang hasilnya diolah menjadi produk bernilai tambah dan dipasarkan secara digital.","villageUrl":"https://sobiunisvetpf12.github.io/agroedukandri/","modulUrl":"","videoUrl":"","footer":"© Kandri E-Commerce · Program Smart Aquaponik DEB Desa Kandri","products":[{"name":"Nugget Lele","desc":"Contoh produk — ganti nama, deskripsi, dan foto lewat dashboard admin.","price":"","emoji":"🍤","img":"","link":""},{"name":"Keripik Lele","desc":"Contoh produk — renyah dan gurih dari ikan hasil aquaponik.","price":"","emoji":"🐟","img":"","link":""},{"name":"Sayur Segar Aquaponik","desc":"Contoh produk — sayuran segar tanpa pestisida.","price":"","emoji":"🥬","img":"","link":""}]}</script>
+<script type="application/json" id="cfg">{"heroTitle":"Kandri E-Commerce: Produk Olahan Smart Aquaponik dari Desa Kandri","heroSub":"Etalase digital produk olahan program Smart Aquaponik Desa Energi Berdikari (DEB) — segar, lokal, dan mendukung kemandirian ekonomi desa.","color":"#26891f","shopeeUrl":"","waNumber":"","waMsg":"Halo Kandri E-Commerce, saya tertarik dengan produk olahan Smart Aquaponik.","showAbout":true,"showProducts":true,"showGuide":true,"aboutTitle":"Tentang Desa Kandri","aboutText":"Desa Kandri berada di Kecamatan Gunungpati, Kota Semarang, Jawa Tengah. Melalui program Desa Energi Berdikari (DEB), masyarakat mengembangkan Smart Aquaponik — budidaya ikan dan tanaman terpadu berbasis teknologi — yang hasilnya diolah menjadi produk bernilai tambah dan dipasarkan secara digital.","villageUrl":"https://sobiunisvetpf12.github.io/agroedukandri/","modulUrl":"","videoUrl":"","footer":"© Kandri E-Commerce · Program Smart Aquaponik DEB Desa Kandri","products":[{"name":"Nugget Lele","desc":"Contoh produk — ganti nama, deskripsi, dan foto lewat dashboard admin.","price":"","emoji":"🍤","img":"","link":""},{"name":"Keripik Lele","desc":"Contoh produk — renyah dan gurih dari ikan hasil aquaponik.","price":"","emoji":"🐟","img":"","link":""},{"name":"Sayur Segar Aquaponik","desc":"Contoh produk — sayuran segar tanpa pestisida.","price":"","emoji":"🥬","img":"","link":""}]}</script>
 <script id="main">
 const $=s=>document.querySelector(s);let C=JSON.parse($('#cfg').textContent);
 const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -73,7 +73,7 @@ ${C.showProducts?`<section id="produk" style="background:var(--soft)"><div class
 ${C.products.map(p=>`<article class="pc"><div class="im">${p.img?`<img src="${E(p.img)}" alt="${E(p.name)}">`:E(p.emoji||'🐟')}</div><div class="bd"><h3>${E(p.name)}</h3>${p.price?`<div class="pr">${E(p.price)}</div>`:''}<p>${E(p.desc)}</p>${B('s','Beli di Shopee',U(p.link)||sh)}</div></article>`).join('')}</div></div></section>`:''}
 ${C.showGuide?`<section id="panduan"><div class="w"><div class="guide"><h2>🌱 Panduan Aquaponik</h2><p class="sub">Tertarik mencoba sendiri? Pelajari cara budidaya Smart Aquaponik.</p><button class="btn" id="og">Buka Panduan</button></div></div></section>`:''}
 <section id="kontak"><div class="w" style="text-align:center"><h2>Hubungi Kami</h2><p class="sub">Pemesanan dalam jumlah besar atau pertanyaan produk? Chat langsung dengan kami.</p>${B('wa','💬 Chat via WhatsApp',U(w))}</div></section>
-<footer><div class="w">${E(C.footer)} · <a href="#admin" id="al" style="opacity:.6">Admin</a></div></footer>
+<footer><div class="w">${E(C.footer)}</div></footer>
 <div class="modal" id="gm"><div class="box"><h3 style="margin:0 0 6px">Panduan Aquaponik</h3><p class="sub" style="margin-bottom:8px">Pilih materi:</p>${B('','📘 Modul Aquaponik',U(C.modulUrl))}${B('s','▶ Video Panduan (YouTube)',U(C.videoUrl))}<button class="btn o" id="cg" style="width:100%">Tutup</button></div></div>`;
 const og=$('#og');if(og){og.onclick=()=>$('#gm').classList.add('on');$('#cg').onclick=()=>$('#gm').classList.remove('on');$('#gm').onclick=e=>{if(e.target.id=='gm')e.target.classList.remove('on')}}}
 const F=[['heroTitle','Judul utama'],['heroSub','Subjudul','t'],['color','Warna utama','c'],['shopeeUrl','Link toko Shopee (umum)'],['waNumber','Nomor WhatsApp (format 628xxx)'],['waMsg','Pesan awal WhatsApp'],['aboutTitle','Judul info desa'],['aboutText','Teks info desa','t'],['villageUrl','Link info desa'],['modulUrl','Link modul aquaponik'],['videoUrl','Link video YouTube'],['footer','Teks footer']];
@@ -95,17 +95,12 @@ if(a=='ri')P[i].img='';
 if(a=='up'&&i>0)[P[i-1],P[i]]=[P[i],P[i-1]];
 if(a=='dn'&&i<P.length-1)[P[i+1],P[i]]=[P[i],P[i+1]];
 if(a=='save')return save();admin();render()});
-async function save(){let ar;try{if(window.claude&&claude.use)ar=await claude.use('artifact')}catch(x){}
+async function save(){let ar;try{ar=await claude.use('artifact')}catch(x){}if(!ar)return toast('Simpan tidak tersedia untuk akun ini');
 const j=JSON.stringify(C).replace(/</g,'\\u003c'),m=$('#main').textContent,z='</'+'script>';
 const html='<!doctype html>\n<html lang="id">\n'+document.head.outerHTML+'\n<body>\n<div id="page"></div><div id="adm"></div><button class="btn" id="fab">⚙ Dashboard Admin</button><div id="toast"></div>\n<script type="application/json" id="cfg">'+j+z+'\n<script id="main">'+m+z+'\n</body>\n</html>';
-if(!ar){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='index.html';a.click();return toast('index.html terunduh — upload & timpa file lama di hosting')}
 toast('Menyimpan…');try{await ar.publish(html)}catch(x){toast('Gagal menyimpan: '+(x.code||x.message))}}
 render();
-const openAdm=()=>{admin();$('#adm').classList.add('on')};
-document.addEventListener('click',e=>{if(e.target.id=='al'){e.preventDefault();openAdm()}});
-if(location.hash=='#admin')openAdm();
-addEventListener('hashchange',()=>{if(location.hash=='#admin')openAdm()});
-(async()=>{try{if(!window.claude||!claude.use)return;const u=await claude.use('user');if(u&&u.canEdit()){const f=$('#fab');f.style.display='block';f.onclick=openAdm}}catch(x){}})();
+(async()=>{try{const u=await claude.use('user');if(u&&u.canEdit()){const f=$('#fab');f.style.display='block';f.onclick=()=>{admin();$('#adm').classList.add('on')}}}catch(x){}})();
 </script>
 </body>
 </html>
