@@ -38,6 +38,9 @@ section{padding:54px 0}h2{font-size:28px;margin:0 0 8px}.sub{color:var(--mu);mar
 .modal{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;z-index:20;padding:20px}
 .modal.on{display:flex}.box{background:var(--card);border-radius:20px;padding:26px;max-width:420px;width:100%}
 .box .btn{display:block;text-align:center;margin:10px 0}
+.hero.hi{color:#fff}.hero.hi p{color:#e8f4ec}.hero.hi .btn.o{color:#fff;border-color:#fffa}
+.lg{padding:26px 0;border-bottom:1px solid var(--bd)}.lg .w{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px}
+.lg small{color:var(--mu);font-size:13px;width:100%;text-align:center}.lg img{height:48px;max-width:150px;object-fit:contain;background:#fff;padding:6px 12px;border-radius:10px;border:1px solid var(--bd)}
 footer{padding:30px 0;border-top:1px solid var(--bd);color:var(--mu);font-size:14px;text-align:center}
 #fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9;display:none}
 #adm{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--card);border-left:1px solid var(--bd);z-index:30;overflow:auto;padding:20px;display:none;box-shadow:-8px 0 30px #0004}
@@ -52,7 +55,7 @@ footer{padding:30px 0;border-top:1px solid var(--bd);color:var(--mu);font-size:1
 </head>
 <body>
 <div id="page"></div><div id="adm"></div><button class="btn" id="fab">⚙ Dashboard Admin</button><div id="toast"></div>
-<script type="application/json" id="cfg">{"heroTitle":"Kandri E-Commerce: Produk Olahan Smart Aquaponik dari Desa Kandri","heroSub":"Etalase digital produk olahan program Smart Aquaponik Desa Energi Berdikari (DEB) — segar, lokal, dan mendukung kemandirian ekonomi desa.","color":"#1f8a5b","shopeeUrl":"","waNumber":"6285926315544","waMsg":"Halo Kandri E-Commerce, saya tertarik dengan produk olahan Smart Aquaponik.","showAbout":true,"showProducts":true,"showGuide":true,"aboutTitle":"Tentang Desa Kandri","aboutText":"Desa Kandri berada di Kecamatan Gunungpati, Kota Semarang, Jawa Tengah. Melalui program Desa Energi Berdikari (DEB), masyarakat mengembangkan Smart Aquaponik — budidaya ikan dan tanaman terpadu berbasis teknologi — yang hasilnya diolah menjadi produk bernilai tambah dan dipasarkan secara digital.","villageUrl":"https://sobiunisvetpf12.github.io/agroedukandri/","modulUrl":"","videoUrl":"","footer":"© Kandri E-Commerce · Program Smart Aquaponik DEB Desa Kandri","products":[{"name":"Nugget Lele","desc":"Contoh produk — ganti nama, deskripsi, dan foto lewat dashboard admin.","price":"","emoji":"🍤","img":"","link":""},{"name":"Keripik Lele","desc":"Contoh produk — renyah dan gurih dari ikan hasil aquaponik.","price":"","emoji":"🐟","img":"","link":""},{"name":"Sayur Segar Aquaponik","desc":"Contoh produk — sayuran segar tanpa pestisida.","price":"","emoji":"🥬","img":"","link":""}]}</script>
+<script type="application/json" id="cfg">{"heroTitle":"Kandri E-Commerce: Produk Olahan Smart Aquaponik dari Desa Kandri","heroSub":"Etalase digital produk olahan program Smart Aquaponik Desa Energi Berdikari (DEB) — segar, lokal, dan mendukung kemandirian ekonomi desa.","color":"#1f8a5b","shopeeUrl":"","waNumber":"","waMsg":"Halo Kandri E-Commerce, saya tertarik dengan produk olahan Smart Aquaponik.","showAbout":true,"showProducts":true,"showGuide":true,"aboutTitle":"Tentang Desa Kandri","aboutText":"Desa Kandri berada di Kecamatan Gunungpati, Kota Semarang, Jawa Tengah. Melalui program Desa Energi Berdikari (DEB), masyarakat mengembangkan Smart Aquaponik — budidaya ikan dan tanaman terpadu berbasis teknologi — yang hasilnya diolah menjadi produk bernilai tambah dan dipasarkan secara digital.","villageUrl":"https://sobiunisvetpf12.github.io/agroedukandri/","modulUrl":"","videoUrl":"","footer":"© Kandri E-Commerce · Program Smart Aquaponik DEB Desa Kandri","products":[{"name":"Nugget Lele","desc":"Contoh produk — ganti nama, deskripsi, dan foto lewat dashboard admin.","price":"","emoji":"🍤","img":"","link":""},{"name":"Keripik Lele","desc":"Contoh produk — renyah dan gurih dari ikan hasil aquaponik.","price":"","emoji":"🐟","img":"","link":""},{"name":"Sayur Segar Aquaponik","desc":"Contoh produk — sayuran segar tanpa pestisida.","price":"","emoji":"🥬","img":"","link":""}]}</script>
 <script id="main">
 const FB={on:true,user:null};
 const GH={o:'abdanhabib',r:'Kandri-E-Commerce',f:'index.html'};
@@ -61,7 +64,7 @@ FB.login=async t=>{FB.user=t;try{const d=await gh('');if(!d.permissions||!d.perm
 FB.logout=()=>{FB.user=null;try{localStorage.removeItem('kgh')}catch(e){}admin()};
 GH.put=async html=>{const b=new TextEncoder().encode(html);let s='';for(let i=0;i<b.length;i+=8192)s+=String.fromCharCode.apply(null,b.subarray(i,i+8192));const p='/contents/'+GH.f;let sha;try{sha=(await gh(p)).sha}catch(e){}return gh(p,{method:'PUT',body:JSON.stringify({message:'Update via dashboard admin',content:btoa(s),sha})})};
 try{const t=localStorage.getItem('kgh');if(t)FB.user=t}catch(e){}
-const $=s=>document.querySelector(s);let C=JSON.parse($('#cfg').textContent);
+const $=s=>document.querySelector(s);let C=JSON.parse($('#cfg').textContent);C.logos=C.logos||[{name:'IVET',img:''},{name:'Pertamina',img:''}];C.heroImg=C.heroImg||'';
 const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const U=u=>/^https?:\/\//i.test(u||'')?E(u):'';
 const wa=()=>{const n=(C.waNumber||'').replace(/\D/g,'');return n?'https://wa.me/'+n+'?text='+encodeURIComponent(C.waMsg||''):''};
@@ -72,8 +75,9 @@ document.documentElement.style.setProperty('--p',C.color||'#1f8a5b');
 const w=wa(),sh=U(C.shopeeUrl);
 $('#page').innerHTML=`
 <nav><div class="w"><b>🌿 Kandri E-Commerce</b><div>${C.showAbout?'<a href="#desa">Desa</a>':''}${C.showProducts?'<a href="#produk">Produk</a>':''}${C.showGuide?'<a href="#panduan">Panduan</a>':''}<a href="#kontak">Kontak</a></div></div></nav>
-<header class="hero"><div class="w"><span class="tag">Smart Aquaponik · DEB</span><h1>${E(C.heroTitle)}</h1><p>${E(C.heroSub)}</p>
+<header class="hero${C.heroImg?' hi':''}"${C.heroImg?` style="background:linear-gradient(rgba(6,28,16,.6),rgba(6,28,16,.75)),url('${E(C.heroImg)}') center/cover"`:''}><div class="w"><span class="tag">Smart Aquaponik · DEB</span><h1>${E(C.heroTitle)}</h1><p>${E(C.heroSub)}</p>
 ${B('s','🛒 Belanja di Shopee',sh)}${B('wa','💬 Chat WhatsApp',U(w))}${C.showProducts?'<a class="btn o" href="#produk">Lihat Produk</a>':''}</div></header>
+${C.logos.some(l=>l.img)?`<div class="lg"><div class="w"><small>Program ini didukung oleh</small>${C.logos.filter(l=>l.img).map(l=>`<img src="${E(l.img)}" alt="${E(l.name)}">`).join('')}</div></div>`:''}
 ${C.showAbout?`<section id="desa"><div class="w about"><div><h2>${E(C.aboutTitle)}</h2><p class="sub" style="margin-bottom:18px">${E(C.aboutText)}</p>${B('',"Pelajari Lebih Lanjut Tentang Desa",U(C.villageUrl))}</div>
 <div class="pills"><div class="pill"><b>Smart Aquaponik</b>Ikan &amp; tanaman dalam satu sistem terpadu</div><div class="pill"><b>Produk Olahan</b>Nilai tambah dari hasil panen desa</div><div class="pill"><b>Ekonomi Mandiri</b>Pemasaran digital untuk warga Kandri</div></div></div></section>`:''}
 ${C.showProducts?`<section id="produk" style="background:var(--soft)"><div class="w"><h2>Produk Olahan Kami</h2><p class="sub">Klik tombol beli untuk menuju toko e-commerce kami.</p><div class="grid">
@@ -89,12 +93,17 @@ function admin(){
 if(FB.on&&!FB.user){$('#adm').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">🔐 Login Admin</h3><button class="sm" data-a="x">Tutup</button></div><label>Token akses GitHub (khusus pemilik)</label><input type="password" id="pw" autocomplete="off"><p style="font-size:13px;color:var(--mu)">Tanpa token yang valid, perubahan tidak bisa disimpan. Token tersimpan hanya di browser ini.</p><div class="bar"><button class="btn" data-a="login" style="margin:0">Masuk</button></div>`;return}
 $('#adm').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">⚙ Dashboard Admin</h3><span>${FB.on?'<button class="sm" data-a="out">Keluar</button> ':''}<button class="sm" data-a="x">Tutup</button></span></div>
 <h4>Pengaturan &amp; Link</h4>${F.map(([k,l,t])=>`<label>${l}</label>${t=='t'?`<textarea data-k="${k}">${E(C[k])}</textarea>`:t=='c'?`<input type="color" data-k="${k}" value="${E(C[k])}">`:`<input type="text" data-k="${k}" value="${E(C[k])}">`}`).join('')}
+<h4>Gambar &amp; Logo</h4><label>Foto desa (latar bagian atas)</label><input type="file" accept="image/*" data-u="hero">${C.heroImg?'<div style="margin-top:8px"><button class="sm" data-a="rh">Hapus foto desa</button></div>':''}${C.logos.map((l,i)=>`<div class="pr-row"><label style="margin-top:0">Nama logo</label><input type="text" data-l="${i}" value="${E(l.name)}"><label>File logo (PNG transparan lebih bagus)</label><input type="file" accept="image/*" data-u="logo" data-i="${i}"><div style="margin-top:8px">${l.img?'<img src="'+E(l.img)+'" style="height:36px;background:#fff;padding:3px;border-radius:6px"> ':''}<button class="sm" data-a="rl" data-i="${i}">Hapus</button></div></div>`).join('')}<button class="sm" data-a="al">+ Tambah logo</button>
 <h4>Tampilan Bagian</h4>${T.map(([k,l])=>`<label style="color:var(--tx)"><input type="checkbox" data-c="${k}" ${C[k]?'checked':''}> ${l}</label>`).join('')}
 <h4>Produk</h4>${C.products.map((p,i)=>`<div class="pr-row"><label style="margin-top:0">Nama</label><input type="text" data-i="${i}" data-f="name" value="${E(p.name)}"><label>Deskripsi</label><textarea data-i="${i}" data-f="desc">${E(p.desc)}</textarea><label>Harga (mis. Rp25.000)</label><input type="text" data-i="${i}" data-f="price" value="${E(p.price)}"><label>Link Shopee produk (kosong = link toko umum)</label><input type="text" data-i="${i}" data-f="link" value="${E(p.link)}"><label>Emoji (jika tanpa foto)</label><input type="text" data-i="${i}" data-f="emoji" value="${E(p.emoji)}"><label>Foto produk</label><input type="file" accept="image/*" data-i="${i}" data-f="file"><div style="margin-top:8px;display:flex;gap:6px">${p.img?`<button class="sm" data-a="ri" data-i="${i}">Hapus foto</button>`:''}<button class="sm" data-a="up" data-i="${i}">↑</button><button class="sm" data-a="dn" data-i="${i}">↓</button><button class="sm" data-a="del" data-i="${i}">Hapus produk</button></div></div>`).join('')}
 <button class="sm" data-a="add">+ Tambah produk</button>
 <div class="bar"><button class="btn" data-a="save" style="margin:0">💾 Simpan &amp; Publikasikan</button></div>`}
-$('#adm').addEventListener('input',e=>{const t=e.target;if(t.dataset.k){C[t.dataset.k]=t.value}else if(t.dataset.c){C[t.dataset.c]=t.checked}else if(t.dataset.f&&t.dataset.f!='file'){C.products[t.dataset.i][t.dataset.f]=t.value}render()});
-$('#adm').addEventListener('change',e=>{const t=e.target;if(t.dataset.f!='file'||!t.files[0])return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,560/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);C.products[t.dataset.i].img=c.toDataURL('image/jpeg',.75);admin();render()};im.src=r.result};r.readAsDataURL(t.files[0])});
+$('#adm').addEventListener('input',e=>{const t=e.target;if(t.dataset.k){C[t.dataset.k]=t.value}else if(t.dataset.c){C[t.dataset.c]=t.checked}else if(t.dataset.l!==undefined){C.logos[t.dataset.l].name=t.value}else if(t.dataset.f&&t.dataset.f!='file'){C.products[t.dataset.i][t.dataset.f]=t.value}render()});
+function rz(file,max,type,q,cb){const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);cb(c.toDataURL(type,q))};im.src=r.result};r.readAsDataURL(file)}
+$('#adm').addEventListener('change',e=>{const t=e.target,f=t.files&&t.files[0];if(!f)return;const u=t.dataset.u;
+if(u=='hero')rz(f,1280,'image/jpeg',.72,d=>{C.heroImg=d;admin();render()});
+else if(u=='logo')rz(f,320,'image/png',1,d=>{C.logos[t.dataset.i].img=d;admin();render()});
+else if(t.dataset.f=='file')rz(f,560,'image/jpeg',.75,d=>{C.products[t.dataset.i].img=d;admin();render()})});
 $('#adm').addEventListener('click',async e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,i=+b.dataset.i,P=C.products;
 if(a=='x')return $('#adm').classList.remove('on');
 if(a=='login'){try{await FB.login($('#pw').value.trim())}catch(x){toast('Token tidak valid atau tidak punya izin tulis')}return}
@@ -104,6 +113,7 @@ if(a=='del'&&confirm('Hapus produk ini?'))P.splice(i,1);
 if(a=='ri')P[i].img='';
 if(a=='up'&&i>0)[P[i-1],P[i]]=[P[i],P[i-1]];
 if(a=='dn'&&i<P.length-1)[P[i+1],P[i]]=[P[i],P[i+1]];
+if(a=='rh')C.heroImg='';if(a=='rl')C.logos.splice(i,1);if(a=='al')C.logos.push({name:'Logo baru',img:''});
 if(a=='save')return save();admin();render()});
 async function save(){let ar;try{if(window.claude&&claude.use)ar=await claude.use('artifact')}catch(x){}
 const j=JSON.stringify(C).replace(/</g,'\\u003c'),m=$('#main').textContent,z='</'+'script>';
