@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kandri E-Commerce — Produk Olahan Smart Aquaponik</title>
+<style>
+:root{--bg:#f5faf6;--card:#fff;--tx:#14301f;--mu:#5b7264;--bd:#dbe8df;--p:#1f8a5b;--soft:#e4f3ea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a13;--card:#16261c;--tx:#e8f3ec;--mu:#9bb5a5;--bd:#27412f;--soft:#1b3326;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1a13;--card:#16261c;--tx:#e8f3ec;--mu:#9bb5a5;--bd:#27412f;--soft:#1b3326;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:inherit}.w{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd)}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:58px}
+nav b{font-size:17px}nav div a{text-decoration:none;margin-left:16px;font-size:14px;color:var(--mu)}
+@media(max-width:560px){nav div a:not(:last-child){display:none}}
+.hero{padding:64px 0 52px;background:linear-gradient(160deg,var(--soft),var(--bg) 70%)}
+.tag{display:inline-block;background:var(--p);color:#fff;padding:3px 12px;border-radius:99px;font-size:13px;margin-bottom:16px}
+h1{font-size:clamp(28px,5.5vw,46px);line-height:1.15;margin:0 0 14px;max-width:760px}
+.hero p{color:var(--mu);max-width:620px;font-size:18px;margin:0 0 26px}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 15px system-ui;padding:12px 22px;border-radius:12px;text-decoration:none;color:#fff;background:var(--p);margin:0 8px 8px 0}
+.btn.s{background:#ee4d2d}.btn.wa{background:#25a244}.btn.o{background:transparent;color:var(--tx);border:1.5px solid var(--bd)}
+.btn.off{opacity:.45;pointer-events:none}
+section{padding:54px 0}h2{font-size:28px;margin:0 0 8px}.sub{color:var(--mu);margin:0 0 28px}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center}
+@media(max-width:720px){.about{grid-template-columns:1fr}}
+.pills{display:grid;gap:12px}.pill{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 18px}
+.pill b{color:var(--p);font-size:20px;display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:20px}
+.pc{background:var(--card);border:1px solid var(--bd);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.pc .im{aspect-ratio:4/3;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:64px}
+.pc img{width:100%;height:100%;object-fit:cover}.pc .bd{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pc h3{margin:0;font-size:18px}.pc p{margin:0;color:var(--mu);font-size:14px;flex:1}.pr{font-weight:700;color:var(--p)}
+.pc .btn{margin:8px 0 0;text-align:center;width:100%}
+.guide{background:var(--soft);border-radius:22px;padding:34px;text-align:center}
+.modal{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;z-index:20;padding:20px}
+.modal.on{display:flex}.box{background:var(--card);border-radius:20px;padding:26px;max-width:420px;width:100%}
+.box .btn{display:block;text-align:center;margin:10px 0}
+footer{padding:30px 0;border-top:1px solid var(--bd);color:var(--mu);font-size:14px;text-align:center}
+#fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9;display:none}
+#adm{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--card);border-left:1px solid var(--bd);z-index:30;overflow:auto;padding:20px;display:none;box-shadow:-8px 0 30px #0004}
+#adm.on{display:block}#adm label{display:block;font-size:13px;color:var(--mu);margin:12px 0 4px}
+#adm input[type=text],#adm textarea{width:100%;padding:9px 11px;border:1px solid var(--bd);border-radius:9px;background:var(--bg);color:var(--tx);font:inherit;font-size:14px}
+#adm textarea{min-height:80px}#adm h4{margin:22px 0 6px}
+.pr-row{border:1px solid var(--bd);border-radius:12px;padding:12px;margin:10px 0}
+.sm{font:600 13px system-ui;padding:6px 12px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);cursor:pointer}
+.bar{position:sticky;bottom:-20px;background:var(--card);padding:12px 0;display:flex;gap:8px;margin-top:16px}
+#toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#111;color:#fff;padding:10px 18px;border-radius:99px;font-size:14px;display:none;z-index:50}
+</style>
+</head>
+<body>
+<div id="page"></div><div id="adm"></div><button class="btn" id="fab">⚙ Dashboard Admin</button><div id="toast"></div>
+<script type="application/json" id="cfg">{"heroTitle":"Kandri E-Commerce: Produk Olahan Smart Aquaponik dari Desa Kandri","heroSub":"Etalase digital produk olahan program Smart Aquaponik Desa Energi Berdikari (DEB) — segar, lokal, dan mendukung kemandirian ekonomi desa.","color":"#1f8a5b","shopeeUrl":"","waNumber":"","waMsg":"Halo Kandri E-Commerce, saya tertarik dengan produk olahan Smart Aquaponik.","showAbout":true,"showProducts":true,"showGuide":true,"aboutTitle":"Tentang Desa Kandri","aboutText":"Desa Kandri berada di Kecamatan Gunungpati, Kota Semarang, Jawa Tengah. Melalui program Desa Energi Berdikari (DEB), masyarakat mengembangkan Smart Aquaponik — budidaya ikan dan tanaman terpadu berbasis teknologi — yang hasilnya diolah menjadi produk bernilai tambah dan dipasarkan secara digital.","villageUrl":"https://sobiunisvetpf12.github.io/agroedukandri/","modulUrl":"","videoUrl":"","footer":"© Kandri E-Commerce · Program Smart Aquaponik DEB Desa Kandri","products":[{"name":"Nugget Lele","desc":"Contoh produk — ganti nama, deskripsi, dan foto lewat dashboard admin.","price":"","emoji":"🍤","img":"","link":""},{"name":"Keripik Lele","desc":"Contoh produk — renyah dan gurih dari ikan hasil aquaponik.","price":"","emoji":"🐟","img":"","link":""},{"name":"Sayur Segar Aquaponik","desc":"Contoh produk — sayuran segar tanpa pestisida.","price":"","emoji":"🥬","img":"","link":""}]}</script>
+<script id="main">
+const $=s=>document.querySelector(s);let C=JSON.parse($('#cfg').textContent);
+const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const U=u=>/^https?:\/\//i.test(u||'')?E(u):'';
+const wa=()=>{const n=(C.waNumber||'').replace(/\D/g,'');return n?'https://wa.me/'+n+'?text='+encodeURIComponent(C.waMsg||''):''};
+const B=(cls,txt,href,ext=1)=>href?`<a class="btn ${cls}" href="${href}" ${ext?'target="_blank" rel="noopener"':''}>${txt}</a>`:`<span class="btn ${cls} off">${txt} (segera hadir)</span>`;
+function toast(t){const e=$('#toast');e.textContent=t;e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',3000)}
+function render(){
+document.documentElement.style.setProperty('--p',C.color||'#1f8a5b');
+const w=wa(),sh=U(C.shopeeUrl);
+$('#page').innerHTML=`
+<nav><div class="w"><b>🌿 Kandri E-Commerce</b><div>${C.showAbout?'<a href="#desa">Desa</a>':''}${C.showProducts?'<a href="#produk">Produk</a>':''}${C.showGuide?'<a href="#panduan">Panduan</a>':''}<a href="#kontak">Kontak</a></div></div></nav>
+<header class="hero"><div class="w"><span class="tag">Smart Aquaponik · DEB</span><h1>${E(C.heroTitle)}</h1><p>${E(C.heroSub)}</p>
+${B('s','🛒 Belanja di Shopee',sh)}${B('wa','💬 Chat WhatsApp',U(w))}${C.showProducts?'<a class="btn o" href="#produk">Lihat Produk</a>':''}</div></header>
+${C.showAbout?`<section id="desa"><div class="w about"><div><h2>${E(C.aboutTitle)}</h2><p class="sub" style="margin-bottom:18px">${E(C.aboutText)}</p>${B('',"Pelajari Lebih Lanjut Tentang Desa",U(C.villageUrl))}</div>
+<div class="pills"><div class="pill"><b>Smart Aquaponik</b>Ikan &amp; tanaman dalam satu sistem terpadu</div><div class="pill"><b>Produk Olahan</b>Nilai tambah dari hasil panen desa</div><div class="pill"><b>Ekonomi Mandiri</b>Pemasaran digital untuk warga Kandri</div></div></div></section>`:''}
+${C.showProducts?`<section id="produk" style="background:var(--soft)"><div class="w"><h2>Produk Olahan Kami</h2><p class="sub">Klik tombol beli untuk menuju toko e-commerce kami.</p><div class="grid">
+${C.products.map(p=>`<article class="pc"><div class="im">${p.img?`<img src="${E(p.img)}" alt="${E(p.name)}">`:E(p.emoji||'🐟')}</div><div class="bd"><h3>${E(p.name)}</h3>${p.price?`<div class="pr">${E(p.price)}</div>`:''}<p>${E(p.desc)}</p>${B('s','Beli di Shopee',U(p.link)||sh)}</div></article>`).join('')}</div></div></section>`:''}
+${C.showGuide?`<section id="panduan"><div class="w"><div class="guide"><h2>🌱 Panduan Aquaponik</h2><p class="sub">Tertarik mencoba sendiri? Pelajari cara budidaya Smart Aquaponik.</p><button class="btn" id="og">Buka Panduan</button></div></div></section>`:''}
+<section id="kontak"><div class="w" style="text-align:center"><h2>Hubungi Kami</h2><p class="sub">Pemesanan dalam jumlah besar atau pertanyaan produk? Chat langsung dengan kami.</p>${B('wa','💬 Chat via WhatsApp',U(w))}</div></section>
+<footer><div class="w">${E(C.footer)} · <a href="#admin" id="al" style="opacity:.6">Admin</a></div></footer>
+<div class="modal" id="gm"><div class="box"><h3 style="margin:0 0 6px">Panduan Aquaponik</h3><p class="sub" style="margin-bottom:8px">Pilih materi:</p>${B('','📘 Modul Aquaponik',U(C.modulUrl))}${B('s','▶ Video Panduan (YouTube)',U(C.videoUrl))}<button class="btn o" id="cg" style="width:100%">Tutup</button></div></div>`;
+const og=$('#og');if(og){og.onclick=()=>$('#gm').classList.add('on');$('#cg').onclick=()=>$('#gm').classList.remove('on');$('#gm').onclick=e=>{if(e.target.id=='gm')e.target.classList.remove('on')}}}
+const F=[['heroTitle','Judul utama'],['heroSub','Subjudul','t'],['color','Warna utama','c'],['shopeeUrl','Link toko Shopee (umum)'],['waNumber','Nomor WhatsApp (format 628xxx)'],['waMsg','Pesan awal WhatsApp'],['aboutTitle','Judul info desa'],['aboutText','Teks info desa','t'],['villageUrl','Link info desa'],['modulUrl','Link modul aquaponik'],['videoUrl','Link video YouTube'],['footer','Teks footer']];
+const T=[['showAbout','Tampilkan bagian Info Desa'],['showProducts','Tampilkan bagian Produk'],['showGuide','Tampilkan bagian Panduan']];
+function admin(){
+$('#adm').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">⚙ Dashboard Admin</h3><button class="sm" data-a="x">Tutup</button></div>
+<h4>Pengaturan &amp; Link</h4>${F.map(([k,l,t])=>`<label>${l}</label>${t=='t'?`<textarea data-k="${k}">${E(C[k])}</textarea>`:t=='c'?`<input type="color" data-k="${k}" value="${E(C[k])}">`:`<input type="text" data-k="${k}" value="${E(C[k])}">`}`).join('')}
+<h4>Tampilan Bagian</h4>${T.map(([k,l])=>`<label style="color:var(--tx)"><input type="checkbox" data-c="${k}" ${C[k]?'checked':''}> ${l}</label>`).join('')}
+<h4>Produk</h4>${C.products.map((p,i)=>`<div class="pr-row"><label style="margin-top:0">Nama</label><input type="text" data-i="${i}" data-f="name" value="${E(p.name)}"><label>Deskripsi</label><textarea data-i="${i}" data-f="desc">${E(p.desc)}</textarea><label>Harga (mis. Rp25.000)</label><input type="text" data-i="${i}" data-f="price" value="${E(p.price)}"><label>Link Shopee produk (kosong = link toko umum)</label><input type="text" data-i="${i}" data-f="link" value="${E(p.link)}"><label>Emoji (jika tanpa foto)</label><input type="text" data-i="${i}" data-f="emoji" value="${E(p.emoji)}"><label>Foto produk</label><input type="file" accept="image/*" data-i="${i}" data-f="file"><div style="margin-top:8px;display:flex;gap:6px">${p.img?`<button class="sm" data-a="ri" data-i="${i}">Hapus foto</button>`:''}<button class="sm" data-a="up" data-i="${i}">↑</button><button class="sm" data-a="dn" data-i="${i}">↓</button><button class="sm" data-a="del" data-i="${i}">Hapus produk</button></div></div>`).join('')}
+<button class="sm" data-a="add">+ Tambah produk</button>
+<div class="bar"><button class="btn" data-a="save" style="margin:0">💾 Simpan &amp; Publikasikan</button></div>`}
+$('#adm').addEventListener('input',e=>{const t=e.target;if(t.dataset.k){C[t.dataset.k]=t.value}else if(t.dataset.c){C[t.dataset.c]=t.checked}else if(t.dataset.f&&t.dataset.f!='file'){C.products[t.dataset.i][t.dataset.f]=t.value}render()});
+$('#adm').addEventListener('change',e=>{const t=e.target;if(t.dataset.f!='file'||!t.files[0])return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,720/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);C.products[t.dataset.i].img=c.toDataURL('image/jpeg',.82);admin();render()};im.src=r.result};r.readAsDataURL(t.files[0])});
+$('#adm').addEventListener('click',async e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,i=+b.dataset.i,P=C.products;
+if(a=='x')return $('#adm').classList.remove('on');
+if(a=='add')P.push({name:'Produk baru',desc:'',price:'',emoji:'🐟',img:'',link:''});
+if(a=='del'&&confirm('Hapus produk ini?'))P.splice(i,1);
+if(a=='ri')P[i].img='';
+if(a=='up'&&i>0)[P[i-1],P[i]]=[P[i],P[i-1]];
+if(a=='dn'&&i<P.length-1)[P[i+1],P[i]]=[P[i],P[i+1]];
+if(a=='save')return save();admin();render()});
+async function save(){let ar;try{if(window.claude&&claude.use)ar=await claude.use('artifact')}catch(x){}
+const j=JSON.stringify(C).replace(/</g,'\\u003c'),m=$('#main').textContent,z='</'+'script>';
+const html='<!doctype html>\n<html lang="id">\n'+document.head.outerHTML+'\n<body>\n<div id="page"></div><div id="adm"></div><button class="btn" id="fab">⚙ Dashboard Admin</button><div id="toast"></div>\n<script type="application/json" id="cfg">'+j+z+'\n<script id="main">'+m+z+'\n</body>\n</html>';
+if(!ar){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='index.html';a.click();return toast('index.html terunduh — upload & timpa file lama di hosting')}
+toast('Menyimpan…');try{await ar.publish(html)}catch(x){toast('Gagal menyimpan: '+(x.code||x.message))}}
+render();
+const openAdm=()=>{admin();$('#adm').classList.add('on')};
+document.addEventListener('click',e=>{if(e.target.id=='al'){e.preventDefault();openAdm()}});
+if(location.hash=='#admin')openAdm();
+addEventListener('hashchange',()=>{if(location.hash=='#admin')openAdm()});
+(async()=>{try{if(!window.claude||!claude.use)return;const u=await claude.use('user');if(u&&u.canEdit()){const f=$('#fab');f.style.display='block';f.onclick=openAdm}}catch(x){}})();
+</script>
+</body>
+</html>
