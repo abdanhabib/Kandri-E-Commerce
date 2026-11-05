@@ -20,7 +20,7 @@ nav b{font-size:17px}nav div a{text-decoration:none;margin-left:16px;font-size:1
 h1{font-size:clamp(28px,5.5vw,46px);line-height:1.15;margin:0 0 14px;max-width:760px}
 .hero p{color:var(--mu);max-width:620px;font-size:18px;margin:0 0 26px}
 .btn{display:inline-block;border:0;cursor:pointer;font:600 15px system-ui;padding:12px 22px;border-radius:12px;text-decoration:none;color:#fff;background:var(--p);margin:0 8px 8px 0}
-.btn.s{background:var(--a);color:var(--at)}.btn.wa{background:var(--wa);color:var(--wat)}
+.btn.s{background:#ee4d2d;color:#fff}.btn.wa{background:#25a244;color:#fff}.btn.a{background:var(--a);color:var(--at)}
 .tg{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;padding:4px 9px;font:600 13px system-ui;cursor:pointer;margin-left:10px}.btn.o{background:transparent;color:var(--tx);border:1.5px solid var(--bd)}
 .btn.off{opacity:.45;pointer-events:none}
 section{padding:54px 0}h2{font-size:28px;margin:0 0 8px}.sub{color:var(--mu);margin:0 0 28px}
@@ -96,7 +96,7 @@ ${C.products.map(p=>`<article class="pc"><div class="im">${p.img?`<img src="${E(
 ${C.showGuide?`<section id="panduan"><div class="w"><div class="guide ${C.bgPanduan?'gi':'patg'}"${C.bgPanduan?` style="${bgs(C.bgPanduan)}"`:''}><h2>${TT('gh')}</h2><p class="sub">${TT('gs')}</p><button class="btn" id="og">${TT('og')}</button></div></div></section>`:''}
 <section id="kontak"><div class="w" style="text-align:center"><h2>${TT('ch')}</h2><p class="sub">${TT('cs')}</p>${B('wa',t('cw'),U(w))}</div></section>
 <footer><div class="w">${E(tx('footer'))} · <a href="#admin" id="al" style="opacity:.6">Admin</a></div></footer>
-<div class="modal" id="gm"><div class="box"><h3 style="margin:0 0 6px">${TT('gt')}</h3><p class="sub" style="margin-bottom:8px">${TT('gc')}</p>${B('',t('mod'),U(C.modulUrl))}${B('s',t('vid'),U(C.videoUrl))}<button class="btn o" id="cg" style="width:100%">${TT('close')}</button></div></div>`;
+<div class="modal" id="gm"><div class="box"><h3 style="margin:0 0 6px">${TT('gt')}</h3><p class="sub" style="margin-bottom:8px">${TT('gc')}</p>${B('',t('mod'),U(C.modulUrl))}${B('a',t('vid'),U(C.videoUrl))}<button class="btn o" id="cg" style="width:100%">${TT('close')}</button></div></div>`;
 $('#lb').onclick=()=>{L=L=='id'?'en':'id';try{localStorage.setItem('lang',L)}catch(e){}render()};
 $('#tb').onclick=()=>{const m=dk()?'light':'dark';document.documentElement.dataset.theme=m;try{localStorage.setItem('th',m)}catch(e){}render()};
 const og=$('#og');if(og){og.onclick=()=>$('#gm').classList.add('on');$('#cg').onclick=()=>$('#gm').classList.remove('on');$('#gm').onclick=e=>{if(e.target.id=='gm')e.target.classList.remove('on')}}}
